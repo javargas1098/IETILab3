@@ -7,7 +7,6 @@
     "@material-ui/core": "latest",
     "@material-ui/icons": "latest",
     "classnames": "^2.2.6",
-    "firebase-tools": "^6.4.0",
     "date-fns": "^2.0.0-alpha.27",
     "js-sha256": "^0.9.0",
     "material-ui-pickers": "latest",

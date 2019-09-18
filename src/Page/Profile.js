@@ -132,7 +132,7 @@ class PersistentPrifileLeft extends React.Component {
     };
 
     handleLogout = () => {
-        localStorage.clear();
+        //localStorage.clear();
         localStorage.setItem('page', "login");
         this.props.reloadPage()
     };
