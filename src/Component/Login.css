@@ -1,0 +1,38 @@
+.paper {
+    width: 45%;
+    min-width: 20px;
+    max-width: 400px;
+    margin-top: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px 25px 25px 25px;
+}
+
+.layout {
+    width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    width: 30%;
+}
+
+.right {
+    text-align: right;
+    margin: 10px;
+   
+}
