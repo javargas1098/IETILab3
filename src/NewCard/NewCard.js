@@ -70,6 +70,7 @@ class NewTask extends Component {
                         >
                             <option value="" disabled hidden/>
                             <option value={"Ready"}>Ready</option>
+                            <option value={"Ready"}>In _progress</option>
                             <option value={"Completed"}>Completed</option>
                         </Select>
                     </FormControl>
