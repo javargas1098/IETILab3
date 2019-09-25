@@ -16,7 +16,7 @@ class NewTask extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {description: "", name: "", email: "", status: "", dueDate: new Date()};
+        this.state = {description: "", name: "", email: "", status: "", dueDate: null};
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 

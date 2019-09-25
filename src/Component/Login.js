@@ -22,7 +22,7 @@ export class Login extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.setState({ loading: true });
-        if (localStorage.getItem('emailDefault') === this.state.email && localStorage.getItem('passwordDefault') === this.state.password) {
+        if (localStorage.getItem('userNameStorage') === this.state.email && localStorage.getItem('passwordStorage') === this.state.password) {
             console.log('entrooooo');
             localStorage.setItem('page', "Logged");
             this.props.reloadPage();
@@ -52,7 +52,6 @@ export class Login extends React.Component {
                         {/* <img src={logo} className="App-logo" alt="logo"/> */}
                         <Typography color="error" gutterBottom>{this.state.errorMessage}</Typography>
                         <form className="form" onSubmit={this.handleSubmit}>
-                            <h5>email Javier password ieti</h5>
                             <TextField required label="Username" fullWidth value={this.state.email}
                                 onChange={this.handleEmailSubmit} />
                             <TextField required label="Password" type="password" fullWidth value={this.state.password}
@@ -63,7 +62,7 @@ export class Login extends React.Component {
                             </Button>
                         </form>
                         <br />
-                        <Link>Create account</Link>
+                        <Link to={"/NewUser"} >Create account</Link>
                         {this.state.loading && <CircularProgress style={{ marginTop: "6%" }} />}
                     </Paper>
                 </main>

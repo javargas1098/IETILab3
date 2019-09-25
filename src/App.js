@@ -3,6 +3,7 @@ import './App.css';
 import { Login } from './Component/Login';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PersistentDrawerLeft from "./Page/Profile";
+import NewUser from "./NewUser/NewUser";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
@@ -10,7 +11,7 @@ const theme = createMuiTheme({
         // In Chinese and Japanese the characters are usually larger,
         // so a smaller fontsize may be appropriate.
         fontSize: 17,
-      },
+    },
     palette: {
         background: { paper: "rgba(239, 193, 44, 1)", default: "#3c4858" },
         primary: {
@@ -29,8 +30,8 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        localStorage.setItem('emailDefault', "Javier");
-        localStorage.setItem('passwordDefault', "ieti");
+        /* localStorage.setItem('emailDefault', "Javier");
+        localStorage.setItem('passwordDefault', "ieti"); */
         this.state = {
             page: localStorage.getItem('page')
         };
@@ -54,8 +55,8 @@ class App extends Component {
                     </BrowserRouter>
                     : <BrowserRouter>
                         <Switch>
-                            <Route exact path="/"
-                                render={() => <Login reloadPage={this.reloadPage} />} />
+                            <Route exact path="/" render={() => <Login reloadPage={this.reloadPage} />} />
+                            <Route exact path="/NewUser" render={() => <NewUser />} />
                             <Route />
                         </Switch>
                     </BrowserRouter>

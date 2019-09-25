@@ -28,6 +28,7 @@ import Avatar from "@material-ui/core/Avatar";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import MenuList from "@material-ui/core/MenuList";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import TaskFilters from "../TaskFilters/TaskFilters.js";
 
 const drawerWidth = 256;
 
@@ -215,10 +216,18 @@ class PersistentPrifileLeft extends React.Component {
                         </Typography>
                         <div className={classes.grow} />
                         <div className={classes.sectionDesktop}>
-                            <IconButton color="secondary">
+                            <IconButton onClick={this.handleModalOpen} color="secondary">
                                 <FilterIcon />
                             </IconButton>
                         </div>
+                        <Modal
+                            aria-labelledby="simple-modal-title"
+                            aria-describedby="simple-modal-description"
+                            open={this.state.openModal}
+                            onClose={this.handleModalClose}
+                        >
+                            <TaskFilters tasks={this.state.tasks}/>
+                        </Modal>
 
                     </Toolbar>
                 </AppBar>
@@ -241,16 +250,16 @@ class PersistentPrifileLeft extends React.Component {
                         <ListItem>
                             <ListItemAvatar style={{ left: -8, }}>
                                 <Avatar style={{ color: '#fff' }} >
-                                {localStorage.getItem('emailDefault').charAt(0).toUpperCase()}</Avatar>
+                                {localStorage.getItem('userNameStorage').charAt(0).toUpperCase()}</Avatar>
                             </ListItemAvatar>
 
                             <ListItemText style={{ color: '#fff' }}
 
-                                primary={localStorage.getItem('emailDefault')}
+                                primary={localStorage.getItem('emailStorage')}
 
                                 secondary={
                                     <Typography style={{ color: '#ffffff80' }} noWrap>
-                                        {localStorage.getItem('emailDefault')}
+                                        {localStorage.getItem('fullNameStorage')}
                                     </Typography>}
                             />
                             <ListItemSecondaryAction style={{
