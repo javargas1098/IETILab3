@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import PersistentDrawerLeft from "./Page/Profile";
 import NewUser from "./NewUser/NewUser";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import HttpsRedirect from 'react-https-redirect';
 
 const theme = createMuiTheme({
     typography: {
@@ -45,23 +46,25 @@ class App extends Component {
 
     render() {
         return (
-            <MuiThemeProvider theme={theme}>
-                {this.state.page === 'Logged' ?
-                    <BrowserRouter>
-                        <Switch>
-                            <Route exact path="/"
-                                render={() => <PersistentDrawerLeft reloadPage={this.reloadPage} />} />
-                        </Switch>
-                    </BrowserRouter>
-                    : <BrowserRouter>
-                        <Switch>
-                            <Route exact path="/" render={() => <Login reloadPage={this.reloadPage} />} />
-                            <Route exact path="/NewUser" render={() => <NewUser />} />
-                            <Route />
-                        </Switch>
-                    </BrowserRouter>
-                }
-            </MuiThemeProvider>
+            <HttpsRedirect>
+                <MuiThemeProvider theme={theme}>
+                    {this.state.page === 'Logged' ?
+                        <BrowserRouter>
+                            <Switch>
+                                <Route exact path="/"
+                                    render={() => <PersistentDrawerLeft reloadPage={this.reloadPage} />} />
+                            </Switch>
+                        </BrowserRouter>
+                        : <BrowserRouter>
+                            <Switch>
+                                <Route exact path="/" render={() => <Login reloadPage={this.reloadPage} />} />
+                                <Route exact path="/NewUser" render={() => <NewUser />} />
+                                <Route />
+                            </Switch>
+                        </BrowserRouter>
+                    }
+                </MuiThemeProvider>
+            </HttpsRedirect>
         );
     }
 }
