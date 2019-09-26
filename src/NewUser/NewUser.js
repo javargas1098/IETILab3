@@ -140,7 +140,7 @@ class NewUser extends Component {
                             Clear
                         </Button>
                         <br /><br />
-                        <Button type="button" href="/admin/Dashboard" color="primary" variant="contained" fullWidth disabled={this.state.loading}>
+                        <Button type="button" href="/" color="primary" variant="contained" fullWidth disabled={this.state.loading}>
                             Back
                         </Button>
                         {this.state.doRedirect && <Redirect to={"/"} />}
