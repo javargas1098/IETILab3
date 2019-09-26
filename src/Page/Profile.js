@@ -29,6 +29,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import MenuList from "@material-ui/core/MenuList";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TaskFilters from "../TaskFilters/TaskFilters.js";
+import EditUser from "../EditUser/EditUser";
 
 const drawerWidth = 256;
 
@@ -268,9 +269,17 @@ class PersistentPrifileLeft extends React.Component {
                                 top: '50%',
                                 transform: 'translateY(-50%)',
                             }}>
-                                <IconButton style={{ color: '#fff' }} >
+                                <IconButton style={{ color: '#fff' }} onClick={this.handleModalUserOpen}>
                                     <Edit />
                                 </IconButton>
+                                <Modal
+                                    aria-labelledby="simple-modal-title"
+                                    aria-describedby="simple-modal-description"
+                                    open={this.state.openModalUser}
+                                    onClose={this.handleModalUserClose}
+                                >
+                                    <EditUser callback={this.updateUserInfo} close={this.handleModalUserClose}/>
+                                </Modal>
                             </ListItemSecondaryAction>
                         </ListItem>
                     </List>
